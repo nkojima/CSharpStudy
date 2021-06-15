@@ -25,9 +25,12 @@ namespace CSharpStudy.Image
         /// <summary>
         /// コンストラクタ。
         /// </summary>
-        public IchimatsuDrawer(int width = 300, int height = 200, int gridSize = 20)
+        /// <param name="canvasWidth">キャンバスの幅（px）</param>
+        /// <param name="canvasHeight">キャンバスの高さ（px）</param>
+        /// <param name="gridSize">グリッド（格子）のサイズ（px）</param>
+        public IchimatsuDrawer(int canvasWidth = 300, int canvasHeight = 200, int gridSize = 20)
         {
-            this.bmp = new Bitmap(width, height);
+            this.bmp = new Bitmap(canvasWidth, canvasHeight);
             this.gridSize = gridSize;
         }
 
