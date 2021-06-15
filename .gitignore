@@ -1,0 +1,9 @@
+CSharpStudyTest/obj/
+.vs/CSharpStudy/v16/.suo
+.vs/CSharpStudy/v16/TestStore/0/001.testlog
+CSharpStudyTest/bin/Debug/CSharpStudyTest.dll
+CSharpStudyTest/bin/Debug/CSharpStudyTest.pdb
+CSharpStudyTest/bin/
+packages/
+.vs/CSharpStudy/DesignTimeBuild/.dtbcache.v2
+.vs/CSharpStudy/v16/TestStore/0/testlog.manifest
