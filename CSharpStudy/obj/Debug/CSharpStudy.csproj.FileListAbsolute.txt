@@ -1,7 +1,0 @@
-C:\Users\NKOJIMA\source\repos\CSharpStudy\CSharpStudy\bin\Debug\CSharpStudy.exe.config
-C:\Users\NKOJIMA\source\repos\CSharpStudy\CSharpStudy\bin\Debug\CSharpStudy.exe
-C:\Users\NKOJIMA\source\repos\CSharpStudy\CSharpStudy\bin\Debug\CSharpStudy.pdb
-C:\Users\NKOJIMA\source\repos\CSharpStudy\CSharpStudy\obj\Debug\CSharpStudy.csproj.CoreCompileInputs.cache
-C:\Users\NKOJIMA\source\repos\CSharpStudy\CSharpStudy\obj\Debug\CSharpStudy.exe
-C:\Users\NKOJIMA\source\repos\CSharpStudy\CSharpStudy\obj\Debug\CSharpStudy.pdb
-C:\Users\NKOJIMA\source\repos\CSharpStudy\CSharpStudy\obj\Debug\CSharpStudy.csprojAssemblyReference.cache
