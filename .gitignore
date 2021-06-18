@@ -7,3 +7,5 @@ CSharpStudyTest/bin/
 packages/
 .vs/CSharpStudy/DesignTimeBuild/.dtbcache.v2
 .vs/CSharpStudy/v16/TestStore/0/testlog.manifest
+CSharpStudy/bin/
+CSharpStudy/obj/
