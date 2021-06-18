@@ -47,8 +47,10 @@ namespace CSharpStudy.Image
                 // 背景色を設定する。
                 g.FillRectangle(backgroundColor, g.VisibleClipBounds);
 
-                int widthCount = this.bmp.Width / this.gridSize;
-                int heightCount = this.bmp.Height / this.gridSize;
+                // 縦・横の格子柄の繰り返し回数を求める。
+                // 繰り返し回数に余りが出る場合は格子柄がはみ出る形になるが、キャンバス外は描画されないので仕上がりの画像には影響しない。
+                double widthCount = (double)this.bmp.Width / (double)this.gridSize;
+                double heightCount = (double)this.bmp.Height / (double)this.gridSize;
 
                 for (int i=0; i< widthCount; i++)
                 {
