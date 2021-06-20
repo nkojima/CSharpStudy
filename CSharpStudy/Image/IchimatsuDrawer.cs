@@ -44,7 +44,7 @@ namespace CSharpStudy.Image
         {
             using (Graphics g = Graphics.FromImage(bmp))
             {
-                // 背景色を設定する。
+                // キャンバスの背景色を設定する。
                 g.FillRectangle(backgroundColor, g.VisibleClipBounds);
 
                 // 縦・横の格子柄の繰り返し回数を求める。
@@ -58,7 +58,7 @@ namespace CSharpStudy.Image
                     {
                         if ((i + j) % 2 == 0)
                         {
-                            // 前景色で塗りつぶされた長方形を描画する。
+                            // 前景色で塗りつぶされた長方形（格子柄）を描画する。
                             g.FillRectangle(foregroundColor, (i * this.gridSize), (j * this.gridSize), this.gridSize, this.gridSize);
                         }
                     }
