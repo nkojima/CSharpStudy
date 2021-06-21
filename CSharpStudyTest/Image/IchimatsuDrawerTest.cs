@@ -19,7 +19,9 @@ namespace CSharpStudyTest.Image
         public void TestMethod1()
         {
             IchimatsuDrawer drawer = new IchimatsuDrawer();
-            drawer.Draw(BITMAP_PATH1, Brushes.DarkGreen, Brushes.Black);
+            drawer.SetBackgroundColor(Brushes.DarkGreen);
+            drawer.SetForegroundColor(Brushes.Black);
+            drawer.Draw(BITMAP_PATH1);
         }
 
         /// <summary>
@@ -29,7 +31,9 @@ namespace CSharpStudyTest.Image
         public void TestMethod2()
         {
             IchimatsuDrawer drawer = new IchimatsuDrawer(310, 210);
-            drawer.Draw(BITMAP_PATH2, Brushes.DarkGreen, Brushes.Black);
+            drawer.SetBackgroundColor(Brushes.DarkGreen);
+            drawer.SetForegroundColor(Brushes.Black);
+            drawer.Draw(BITMAP_PATH2);
         }
     }
 }
