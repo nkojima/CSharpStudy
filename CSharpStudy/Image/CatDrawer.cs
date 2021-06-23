@@ -12,7 +12,7 @@ namespace CSharpStudy.Image
         /// <summary>
         /// 猫のイラストを描画するBitmapオブジェクト。
         /// </summary>
-        Bitmap bmp;
+        private Bitmap bmp;
 
         /// <summary>
         /// コンストラクタ。
