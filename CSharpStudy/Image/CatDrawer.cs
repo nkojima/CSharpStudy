@@ -30,26 +30,33 @@ namespace CSharpStudy.Image
         {
             using (Graphics g = Graphics.FromImage(bmp))
             {
-                // 顔の輪郭を描く。
+                /*
+                 * 顔の輪郭を描く。
+                 */
                 g.DrawEllipse(new Pen(GetFaceBorderColor(), 5), GetFacePosition());
                 g.DrawPolygon(new Pen(GetFaceBorderColor(), 5), GetLeftEarPosition());
                 g.DrawPolygon(new Pen(GetFaceBorderColor(), 5), GetRightEarPosition());
 
-                // 顔の色を塗る。
+                /*
+                 * 顔の色を塗る。
+                 */
                 g.FillEllipse(new SolidBrush(GetFaceColor()), GetFacePosition());
                 g.FillPolygon(new SolidBrush(GetFaceColor()), GetLeftEarPosition());
                 g.FillPolygon(new SolidBrush(GetFaceColor()), GetRightEarPosition());
 
-                // その他の顔のパーツを作る。
+                /*
+                 * その他の顔のパーツを作る。
+                 */
                 g.FillEllipse(Brushes.Black, 190, 200, 15, 50);  // 右目
                 g.FillEllipse(Brushes.Black, 295, 200, 15, 50);  // 左目
+
+                // 口は長方形に内接する円弧として描く。
                 g.DrawArc(new Pen(Color.Black, 5), new Rectangle(190, 270, 60, 60), 0, 180);    // 口（右側）
                 g.DrawArc(new Pen(Color.Black, 5), new Rectangle(250, 270, 60, 60), 0, 180);    // 口（左側）
+
                 g.DrawLine(new Pen(Color.Black, 5), new Point(5, 210), new Point(120, 225));    // ひげ1（右側）
                 g.DrawLine(new Pen(Color.Black, 5), new Point(0, 250), new Point(120, 250));    // ひげ2（右側）
                 g.DrawLine(new Pen(Color.Black, 5), new Point(5, 290), new Point(120, 275));    // ひげ3（右側）
-
-
                 g.DrawLine(new Pen(Color.Black, 5), new Point(380, 225), new Point(495, 210));    // ひげ1（左側）
                 g.DrawLine(new Pen(Color.Black, 5), new Point(380, 250), new Point(500, 250));    // ひげ2（左側）
                 g.DrawLine(new Pen(Color.Black, 5), new Point(380, 275), new Point(495, 290));    // ひげ3（左側）
@@ -79,7 +86,7 @@ namespace CSharpStudy.Image
         }
         
         /// <summary>
-        /// 顔を描画する座標（外接する長方形）を返す。
+        /// 顔を描画する座標（楕円形に外接する長方形）を返す。
         /// </summary>
         /// <returns></returns>
         private Rectangle GetFacePosition()
@@ -88,7 +95,7 @@ namespace CSharpStudy.Image
         }
 
         /// <summary>
-        /// 左耳を描画する座標を返す。
+        /// 左耳（三角形）を描画する座標を返す。
         /// </summary>
         /// <returns></returns>
         private Point[] GetLeftEarPosition()
@@ -101,7 +108,7 @@ namespace CSharpStudy.Image
         }
 
         /// <summary>
-        /// 右耳を描画する座標を返す。
+        /// 右耳（三角形）を描画する座標を返す。
         /// </summary>
         /// <returns></returns>
         private Point[] GetRightEarPosition()
