@@ -49,6 +49,7 @@
     <Compile Include="Image\RectangleDrawer.cs" />
     <Compile Include="Image\GrayConverter.cs" />
     <Compile Include="Image\ImageComparator.cs" />
+    <Compile Include="Image\TreeDrawer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
