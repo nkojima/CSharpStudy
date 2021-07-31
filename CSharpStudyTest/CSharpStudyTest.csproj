@@ -57,6 +57,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Image\GrayConverterTest.cs" />
     <Compile Include="Image\RectangleDrawerTest.cs" />
+    <Compile Include="TreeDrawerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
