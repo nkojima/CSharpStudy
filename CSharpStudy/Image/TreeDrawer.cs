@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CSharpStudy.Image
 {
@@ -13,39 +8,44 @@ namespace CSharpStudy.Image
     {
         List<Branch> branches;
 
-        public void DrawTree(int drawSize)
+        /// <summary>
+        /// 樹形図を描画するキャンバス。
+        /// </summary>
+        private Bitmap bmp;
+
+        private int canvasSize;
+
+        /// <summary>
+        /// コンストラクタ。
+        /// </summary>
+        /// <param name="canvasSize">キャンバスの幅と高さ（px）</param>
+        public TreeDrawer(int canvasSize = 300)
         {
-            // 描画先とするImageオブジェクトを作成する
-            Bitmap canvas = new Bitmap(drawSize, drawSize);
+            this.bmp = new Bitmap(canvasSize, canvasSize);
+            this.canvasSize = canvasSize;
+        }
 
-            //ImageオブジェクトのGraphicsオブジェクトを作成する
-            Graphics g = Graphics.FromImage(canvas);
-
-            //GraphicsPathオブジェクトの作成
-            GraphicsPath myPath = new GraphicsPath();
-
-            // 新しい図形を開始する
-            myPath.StartFigure();
-
+        /// <summary>
+        /// 樹形図を描画する。
+        /// </summary>
+        /// <param name="filePath">出力先のファイルパス。</param>
+        public void Draw(string filePath)
+        {
             // 樹形図の「枝」を作る。
             branches = new List<Branch>();
-            CreateBranch(15, drawSize / 2, drawSize, ToRadian(90), 80);
+            CreateBranch(15, this.canvasSize / 2, this.canvasSize, ToRadian(90), this.canvasSize / 5);
 
-            foreach (var branch in branches)
+            using (Graphics g = Graphics.FromImage(bmp))
             {
-                myPath.AddLine(branch.start, branch.end);
+                foreach (var branch in branches)
+                {
+                    Pen blackPen = new Pen(Color.Black, 1);
+                    g.DrawLine(blackPen, branch.startPoint, branch.endPoint);
+                }
             }
 
-            //パス図形を描画する
-            g.DrawPath(Pens.Black, myPath);
-
-            //リソースを解放する
-            g.Dispose();
-
-            // PictureBox1に表示する
-            canvas.Save(@"C:\Users\NKOJIMA\Desktop\test.png", ImageFormat.Png);
-
-            System.Console.WriteLine("処理完了...");
+            // 画像をPNG形式で保存する。
+            bmp.Save(filePath, System.Drawing.Imaging.ImageFormat.Png);
         }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace CSharpStudy.Image
             double x2 = x1 + length * Math.Cos(angle);
             double y2 = y1 - length * Math.Sin(angle);
 
-            var branch = new Branch(new PointF((float)x1, (float)y1), new PointF((float)x2, (float)y2));
+            var branch = new Branch(new Point((int)x1, (int)y1), new Point((int)x2, (int)y2));
             branches.Add(branch);
 
             CreateBranch(n - 1, x2, y2, angle - Math.PI / 10, length * 0.75);
@@ -89,22 +89,22 @@ namespace CSharpStudy.Image
         /// <summary>
         /// 枝の開始点
         /// </summary>
-        public PointF start;
+        public Point startPoint;
 
         /// <summary>
         /// 枝の終了点
         /// </summary>
-        public PointF end;
+        public Point endPoint;
 
         /// <summary>
         /// コンストラクタ
         /// </summary>
         /// <param name="start">枝の開始点</param>
         /// <param name="end">枝の終了点</param>
-        public Branch(PointF start, PointF end)
+        public Branch(Point startPoint, Point endPoint)
         {
-            this.start = start;
-            this.end = end;
+            this.startPoint = startPoint;
+            this.endPoint = endPoint;
         }
     }
 }
