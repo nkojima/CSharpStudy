@@ -13,6 +13,9 @@ namespace CSharpStudy.Image
         /// </summary>
         private Bitmap bmp;
 
+        /// <summary>
+        /// キャンバスサイズ。
+        /// </summary>
         private int canvasSize;
 
         /// <summary>
