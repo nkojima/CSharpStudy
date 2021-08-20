@@ -43,7 +43,7 @@ namespace CSharpStudy.Image
                 foreach (var branch in branches)
                 {
                     Pen blackPen = new Pen(Color.Black, 1);
-                    g.DrawLine(blackPen, branch.startPoint, branch.endPoint);
+                    g.DrawLine(blackPen, branch.StartPoint, branch.EndPoint);
                 }
             }
 
@@ -92,12 +92,12 @@ namespace CSharpStudy.Image
         /// <summary>
         /// 枝の開始点
         /// </summary>
-        public Point startPoint;
+        public Point StartPoint { get; }
 
         /// <summary>
         /// 枝の終了点
         /// </summary>
-        public Point endPoint;
+        public Point EndPoint { get; }
 
         /// <summary>
         /// コンストラクタ
@@ -106,8 +106,8 @@ namespace CSharpStudy.Image
         /// <param name="end">枝の終了点</param>
         public Branch(Point startPoint, Point endPoint)
         {
-            this.startPoint = startPoint;
-            this.endPoint = endPoint;
+            StartPoint = startPoint;
+            EndPoint = endPoint;
         }
     }
 }
